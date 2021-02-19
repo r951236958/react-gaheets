@@ -23,7 +23,9 @@ export default class App extends Component {
     e.preventDefault();
     console.log(this.state);
 
-    axios.post('https://sheet.best/api/sheets/a6e67deb-2f00-43c3-89d3-b331341d53ed', this.state)
+    const connectionURL = 'https://sheet.best/api/sheets/42627f2d-e682-427a-928a-154ff1e109df'
+    
+    axios.post(connectionURL, this.state)
     .then(response => {
       console.log(response);
     })
@@ -31,6 +33,7 @@ export default class App extends Component {
   
   render() {
     const { name, age, salary, hobby } = this.state;
+    
     return (
       <Container fluid className="container">
         <Header as='h2'>React Google Sheets!</Header>
