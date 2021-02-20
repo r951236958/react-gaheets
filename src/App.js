@@ -1,63 +1,28 @@
-import React, { Component } from 'react'
-import { Button, Form, Container, Header } from 'semantic-ui-react'
-import './App.css';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import Layout from './components/Layout'
+import Button from '@material-ui/core/Button'
 
-export default class App extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       name: '',
-       age: '',
-       salary: '',
-       hobby: ''
-    }
-  }
+function App() {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`
+  })
 
-  changeHandler = (e) => {
-    this.setState({[e.target.name] : e.target.value})
-  }
-
-  submitHandler = e => {
-    e.preventDefault();
-    console.log(this.state);
-
-    const connectionURL = 'https://sheet.best/api/sheets/42627f2d-e682-427a-928a-154ff1e109df'
-    
-    axios.post(connectionURL, this.state)
-    .then(response => {
-      console.log(response);
-    })
-  }
-  
-  render() {
-    const { name, age, salary, hobby } = this.state;
-    
-    return (
-      <Container fluid className="container">
-        <Header as='h2'>React Google Sheets!</Header>
-        <Form className="form" onSubmit={this.submitHandler}>
-          <Form.Field>
-            <label>Name</label>
-            <input placeholder='Enter your name' type="text" name = "name" value = {name} onChange={this.changeHandler}/>
-          </Form.Field>
-          <Form.Field>
-            <label>Age</label>
-            <input placeholder='Enter your age' type="number" name = "age" value = {age} onChange={this.changeHandler}/>
-          </Form.Field>
-          <Form.Field>
-            <label>Salary</label>
-            <input placeholder='Enter your salary' type="number" name = "salary" value = {salary} onChange={this.changeHandler}/>
-          </Form.Field>
-          <Form.Field>
-            <label>Hobby</label>
-            <input placeholder='Enter your hobby' type="text" name = "hobby" value = {hobby} onChange={this.changeHandler}/>
-          </Form.Field>
-          
-          <Button color="blue" type='submit'>Submit</Button>
-        </Form>
-      </Container>
-    )
-  }
+  return (
+    <Layout title="App">
+      <div>
+        <p>You clicked {count} times</p>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={() => setCount(count + 1)}
+        >
+          Click me
+        </Button>
+      </div>
+    </Layout>
+  )
 }
+
+export default App
