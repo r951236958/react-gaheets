@@ -9,6 +9,11 @@ const theme = createMuiTheme({
     secondary: {
       main: '#f50057',
     },
+    blueGray: {
+      light: '#62727b',
+      main: '#37474f',
+      dark: '#102027',
+    },
   },
   // Enable typography v2: https://material-ui.com/style/typography/#migration-to-typography-v2
   typography: {

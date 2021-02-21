@@ -7,7 +7,10 @@ import App from './App'
 import AboutPage from './pages/about'
 import HomePage from './pages/home'
 import FormPage from './pages/form'
-import './index.css'
+import ThanksPage from './pages/thankyou'
+
+import './styles/global.css'
+import './styles/global.scss'
 import reportWebVitals from './reportWebVitals'
 // import 'semantic-ui-css/semantic.min.css'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -24,6 +27,7 @@ ReactDOM.render(
           <Route path="/about" component={AboutPage} />
           <Route path="/home" component={HomePage} />
           <Route path="/form" component={FormPage} />
+          <Route path="/thankyou" component={ThanksPage} />
         </Switch>
       </BrowserRouter>
     </React.StrictMode>

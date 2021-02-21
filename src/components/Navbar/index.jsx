@@ -15,7 +15,7 @@ import Icon from '@material-ui/core/Icon'
 import { Link as RouterLink } from 'react-router-dom'
 import Link from '@material-ui/core/Link'
 import InputBase from '@material-ui/core/InputBase'
-import { slide as Menu } from 'react-burger-menu'
+// import { slide as Menu } from 'react-burger-menu'
 
 import UserMenu from '../UserMenu'
 import LeftMenuSheet from '../LeftMenuSheet'

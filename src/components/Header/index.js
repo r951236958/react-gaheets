@@ -6,8 +6,9 @@ const useStyles = makeStyles({
   root: {
     width: '100%',
     h2: {
-      fontWidth: 500,
+      fontWidth: 700,
     },
+    marginBottom: '1rem',
   },
 })
 

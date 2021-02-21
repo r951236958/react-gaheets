@@ -1,35 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
 
 import Header from '../Header'
-import Navbar from '../Navbar'
+// import Navbar from '../Navbar'
+// import TopBar from '../TopBar'
+import TopNav from '../TopNav'
 import Footer from '../Footer'
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginTop: 12,
-    width: '100%',
-  },
-}))
-
 function Layout({ title, children }) {
-  const classes = useStyles()
-
   return (
     <div>
-      <Navbar />
-
-      <div className={classes.root}>
-        <Container component="main" maxWidth="lg">
-          <Header title={title} />
-          {children}
+      <TopNav />
+      <div className="bg-cyan-700 dark:bg-gray-800 dark:text-gray100">
+        <Container
+          component="main"
+          maxWidth="lg"
+          className="w-full min-h-screen"
+        >
+          <div className="">
+            <Header title={title} />
+            {children}
+          </div>
         </Container>
-        <Footer />
       </div>
+      <Footer />
     </div>
   )
 }

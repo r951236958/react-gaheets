@@ -8,6 +8,10 @@ import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    backgroundColor: theme.palette.blueGray.dark,
+  },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
@@ -53,28 +57,30 @@ const footers = [
 export default function Footer() {
   const classes = useStyles()
   return (
-    <Container maxWidth="md" component="footer" className={classes.footer}>
-      <Grid container spacing={4} justify="space-evenly">
-        {footers.map((footer) => (
-          <Grid item xs={6} sm={3} key={footer.title}>
-            <Typography variant="h6" color="textPrimary" gutterBottom>
-              {footer.title}
-            </Typography>
-            <ul>
-              {footer.description.map((item) => (
-                <li key={item}>
-                  <MuiLink href="#" variant="subtitle1" color="textSecondary">
-                    {item}
-                  </MuiLink>
-                </li>
-              ))}
-            </ul>
-          </Grid>
-        ))}
-      </Grid>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-    </Container>
+    <footer className={classes.root}>
+      <Container maxWidth="md" className={classes.footer}>
+        <Grid container spacing={4} justify="space-evenly">
+          {footers.map((footer) => (
+            <Grid item xs={6} sm={3} key={footer.title}>
+              <Typography variant="h6" color="textPrimary" gutterBottom>
+                {footer.title}
+              </Typography>
+              <ul>
+                {footer.description.map((item) => (
+                  <li key={item}>
+                    <MuiLink href="#" variant="subtitle1" color="textSecondary">
+                      {item}
+                    </MuiLink>
+                  </li>
+                ))}
+              </ul>
+            </Grid>
+          ))}
+        </Grid>
+        <Box mt={5}>
+          <Copyright />
+        </Box>
+      </Container>
+    </footer>
   )
 }
